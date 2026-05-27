@@ -166,6 +166,7 @@
 
       .surprise {
         width: min(78vw, 360px);
+        margin: 0;
         border-radius: 18px;
         overflow: hidden;
         opacity: 0;
@@ -203,6 +204,25 @@
 
       @keyframes reveal {
         to { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+      }
+
+      @media (max-width: 600px) {
+        body {
+          min-height: 100svh;
+          padding: 0;
+        }
+
+        .stage {
+          width: 100vw;
+          min-height: 100svh;
+          padding: 22px 0 28px;
+          justify-items: center;
+        }
+
+        .surprise {
+          width: min(76vw, 320px);
+          justify-self: center;
+        }
       }
     </style>
   </head>
