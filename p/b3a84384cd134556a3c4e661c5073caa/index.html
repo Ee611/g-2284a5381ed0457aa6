@@ -181,12 +181,6 @@
         height: auto;
       }
 
-      .surprise img.is-photo {
-        max-height: min(78vh, 640px);
-        object-fit: contain;
-        background: #fff;
-      }
-
       @keyframes bounce {
         0% { transform: translateY(42px) scale(0.82); opacity: 0; }
         68% { transform: translateY(-8px) scale(1.04); opacity: 1; }
@@ -249,35 +243,5 @@
         <img src="./assets/wink.gif?v=20260528" alt="今天也要开心哦">
       </figure>
     </main>
-    <script>
-      const surpriseImage = document.querySelector(".surprise img");
-
-      async function loadTodayPhoto() {
-        try {
-          const response = await fetch("./daily-photos/manifest.json?v=" + Date.now(), {
-            cache: "no-store"
-          });
-
-          if (!response.ok) {
-            return;
-          }
-
-          const manifest = await response.json();
-          const latest = Array.isArray(manifest.photos) ? manifest.photos[0] : undefined;
-
-          if (!latest?.path) {
-            return;
-          }
-
-          surpriseImage.src = latest.path + "?v=" + encodeURIComponent(latest.version || Date.now());
-          surpriseImage.alt = latest.alt || "今天的照片";
-          surpriseImage.classList.add("is-photo");
-        } catch {
-          surpriseImage.src = "./assets/wink.gif?v=20260528";
-        }
-      }
-
-      loadTodayPhoto();
-    </script>
   </body>
 </html>
