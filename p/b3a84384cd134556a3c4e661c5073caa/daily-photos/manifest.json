@@ -1,4 +1,11 @@
 {
-  "updatedAt": "2026-06-09T14:54:29.208Z",
-  "photos": []
+  "updatedAt": "2026-06-09T15:05:15.738Z",
+  "photos": [
+    {
+      "path": "./daily-photos/uploads/IMG_2968.png",
+      "alt": "daily photo",
+      "version": "1781017482533.622-3100121",
+      "updatedAt": "2026-06-09T15:04:42.534Z"
+    }
+  ]
 }

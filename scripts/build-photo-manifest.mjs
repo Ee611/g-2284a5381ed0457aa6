@@ -23,7 +23,7 @@ const photos = fs
 
     return {
       path: `./daily-photos/uploads/${entry.name}`,
-      alt: "今天的照片",
+      alt: "daily photo",
       version: `${stats.mtimeMs}-${stats.size}`,
       updatedAt: stats.mtime.toISOString()
     };
