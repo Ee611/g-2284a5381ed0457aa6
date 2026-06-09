@@ -1,0 +1,26 @@
+name: Refresh Daily Photos
+
+on:
+  push:
+    paths:
+      - "p/b3a84384cd134556a3c4e661c5073caa/daily-photos/uploads/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Build photo manifest
+        run: node scripts/build-photo-manifest.mjs
+
+      - name: Commit manifest
+        uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: Refresh daily photo manifest
+          file_pattern: p/b3a84384cd134556a3c4e661c5073caa/daily-photos/manifest.json
